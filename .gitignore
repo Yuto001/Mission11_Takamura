@@ -1,0 +1,6 @@
+*.exe
+*.bin
+*.pdb
+obj
+bin
+.vs
