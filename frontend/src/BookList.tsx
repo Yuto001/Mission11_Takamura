@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Project } from './types/Project';
 
-function BookList() {
+function BookList({ selectedCategories }: { selectedCategories: string[] }) {
   const [books, setBooks] = useState<Project[]>([]);
   const [pageSize, setPageSize] = useState<number>(5);
   const [pageNum, setPageNum] = useState<number>(1);
@@ -11,8 +11,13 @@ function BookList() {
 
   useEffect(() => {
     const fetchProjects = async () => {
+      const categoryParams = selectedCategories
+        .map((cat) => `category=${encodeURIComponent(cat)}`)
+        .join('&');
+
       const response = await fetch(
         `https://localhost:5000/Book/AllBooks?pageSize=${pageSize}&pageNum=${pageNum}` +
+          (selectedCategories.length ? `&${categoryParams}` : '') +
           (sortOrder ? `&sortOrder=${sortOrder}` : '')
       );
       const data = await response.json();
@@ -22,12 +27,10 @@ function BookList() {
     };
 
     fetchProjects();
-  }, [pageSize, pageNum, totalItems, sortOrder]);
+  }, [pageSize, pageNum, totalItems, selectedCategories, sortOrder]);
 
   return (
     <>
-      <h1>Online Book Store</h1>
-      <br />
       <button
         onClick={() => {
           if (sortOrder === null) {
