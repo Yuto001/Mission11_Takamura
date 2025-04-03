@@ -22,7 +22,7 @@ const EditBookForm = ({ book, onSuccess, onCancel }: EditBookFormProps) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add New Book</h2>
+      <h2>Edit Book</h2>
       <label>
         Title:
         <input
