@@ -4,6 +4,7 @@ import ProjectsPage from './pages/ProjectsPage';
 import AddCartPage from './pages/AddCartPage';
 import CartPage from './pages/CartPage';
 import { CartProvider } from './context/CartContext';
+import AdminProjectsPage from './pages/AdminProjectsPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               element={<AddCartPage />}
             />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/adminbooks" element={<AdminProjectsPage />} />
           </Routes>
         </Router>
       </CartProvider>
