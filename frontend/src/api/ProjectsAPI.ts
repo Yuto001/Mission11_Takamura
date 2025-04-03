@@ -16,7 +16,7 @@ export const fetchProjects = async (
 ): Promise<FetchProjectsResponse> => {
   try {
     const categoryParams = selectedCategories
-      .map((cat) => `projectTypes=${encodeURIComponent(cat)}`)
+      .map((cat) => `category=${encodeURIComponent(cat)}`)
       .join('&');
 
     const response = await fetch(
