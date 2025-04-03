@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "undefined/subscriptions/76ef1ac2-24aa-40a3-afa6-d2b7ab7e4c05/resourceGroups/appsvc_windows_eastus/providers/Microsoft.Web/sites/Mission13-Takamura-backend",
+  "appService.deploySubpath": "backend\\Mission11_Takamura.API\\publish"
+}
